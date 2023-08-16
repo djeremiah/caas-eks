@@ -103,7 +103,7 @@ spec:
               kustomization:
                 spec:
                   interval: 10m
-                  path: ./claims
+                  path: ./infrastructure
                   sourceRef:
                     kind: GitRepository
                   kubeConfig:
