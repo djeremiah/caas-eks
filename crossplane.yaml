@@ -35,3 +35,11 @@ spec:
       version: ">=v0.35.0"
     - provider: xpkg.upbound.io/upbound/provider-azure-network
       version: ">=v0.35.0"
+    - provider: xpkg.upbound.io/upbound/provider-gcp-cloudplatform
+      version: ">=v0.35.1"
+    - provider: xpkg.upbound.io/upbound/provider-gcp-compute
+      version: ">=v0.35.1"
+    - provider: xpkg.upbound.io/upbound/provider-gcp-container
+      version: ">=v0.35.1"
+    - provider: xpkg.upbound.io/upbound/provider-gcp-servicenetworking
+      version: ">=v0.35.1"
