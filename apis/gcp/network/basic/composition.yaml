@@ -49,9 +49,6 @@ spec:
         spec:
           forProvider:
             networkSelector:
-              # This selector ensures this Subnetwork will select and use the
-              # above Network. They will both be part of the XR, and thus their
-              # controller references will match.
               matchControllerRef: true
             privateIpGoogleAccess: true
             ipCidrRange: 172.16.0.0/16
