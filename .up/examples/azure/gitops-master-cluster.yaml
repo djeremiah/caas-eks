@@ -1,5 +1,5 @@
 # only one gitops master is supported between AWS,GCP,Azure
-apiVersion: aws.caas.upbound.io/v1alpha1
+apiVersion: azure.caas.upbound.io/v1alpha1
 kind: Cluster
 metadata:
   name: gitops-master
