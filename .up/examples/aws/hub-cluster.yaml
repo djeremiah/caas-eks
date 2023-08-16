@@ -1,15 +1,15 @@
 apiVersion: aws.caas.upbound.io/v1alpha1
 kind: Cluster
 metadata:
-  name: hub-01
+  name: aws-hub-01
   namespace: default
 spec:
   parameters:
-    id: hub-01
-    region: us-west-2
+    id: aws-hub-01
+    region: eu-central-1
     version: "1.27"
     nodes:
       count: 3
       size: small
   writeConnectionSecretToRef:
-    name: hub-01-kubeconfig
+    name: aws-hub-01-kubeconfig

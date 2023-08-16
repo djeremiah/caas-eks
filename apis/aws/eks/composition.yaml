@@ -335,8 +335,6 @@ spec:
         - fromFieldPath: spec.parameters.id
           toFieldPath: metadata.name
         - type: PatchSet
-          patchSetName: providerConfigRef
-        - type: PatchSet
           patchSetName: deletionPolicy
         - fromFieldPath: spec.writeConnectionSecretToRef.namespace
           toFieldPath: spec.credentials.secretRef.namespace
@@ -360,8 +358,6 @@ spec:
       patches:
         - fromFieldPath: spec.parameters.id
           toFieldPath: metadata.name
-        - type: PatchSet
-          patchSetName: providerConfigRef
         - type: PatchSet
           patchSetName: deletionPolicy
         - fromFieldPath: spec.writeConnectionSecretToRef.namespace

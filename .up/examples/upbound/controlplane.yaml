@@ -1,11 +1,11 @@
 apiVersion: mcp.caas.upbound.io/v1alpha1
 kind: ControlPlane
 metadata:
-  name: caas-eks
+  name: cluster-as-code
   namespace: default
 spec:
   parameters:
     organizationName: upbound
     configuration: caas-eks
   writeConnectionSecretToRef:
-    name: mcp-caas-eks-kubeconfig
+    name: mcp-cluster-as-code-kubeconfig

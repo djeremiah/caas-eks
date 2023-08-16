@@ -1,9 +1,9 @@
 apiVersion: apiextensions.crossplane.io/v1
 kind: CompositeResourceDefinition
 metadata:
-  name: xservices.aws.caas.upbound.io
+  name: xservices.azure.caas.upbound.io
 spec:
-  group: aws.caas.upbound.io
+  group: azure.caas.upbound.io
   names:
     kind: XServices
     plural: xservices
