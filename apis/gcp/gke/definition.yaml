@@ -1,14 +1,14 @@
 apiVersion: apiextensions.crossplane.io/v1
 kind: CompositeResourceDefinition
 metadata:
-  name: xaks.azure.caas.upbound.io
+  name: xgke.gcp.caas.upbound.io
 spec:
-  group: azure.caas.upbound.io
-  names:
-    kind: XAKS
-    plural: xaks
   connectionSecretKeys:
   - kubeconfig
+  group: gcp.caas.upbound.io
+  names:
+    kind: XGKE
+    plural: xgke
   versions:
   - name: v1alpha1
     served: true
@@ -22,16 +22,18 @@ spec:
             properties:
               parameters:
                 type: object
-                description: AKS configuration parameters.
+                description: GKE configuration parameters.
                 properties:
                   id:
                     type: string
                     description: ID of this Cluster that other objects will use to refer to it.
+                    minLength: 1
+                    maxLength: 34
                   region:
                     type: string
                     description: Region is the region you'd like your resource to be created in.
                   deletionPolicy:
-                    description: When the Composition is deleleted, delelete the Azure resources. Defaults to Delete
+                    description: When the Composition is deleleted, delelete the GCP resources. Defaults to Delete
                     enum:
                     - Delete
                     - Orphan
@@ -44,18 +46,14 @@ spec:
                   version:
                     description: Kubernetes version 
                     type: string
-                    enum:
-                    - "1.27.3"
-                    - "1.26.6"
-                    - "1.25.11"
-                    default: "1.27.3"
+                    default: "latest"
                   nodes:
                     type: object
-                    description: AKS node configuration parameters.
+                    description: GKE node configuration parameters.
                     properties:
                       count:
                         type: integer
-                        description: Desired node count
+                        description: Desired node count, from 1 to 100.
                       size:
                         type: string
                         description: Size of node.
@@ -77,8 +75,8 @@ spec:
           status:
             description: A Status represents the observed state
             properties:
-              aks:
-                description: Freeform field containing status information for aks
+              gke:
+                description: Freeform field containing status information for gke
                 type: object
                 x-kubernetes-preserve-unknown-fields: true
             type: object

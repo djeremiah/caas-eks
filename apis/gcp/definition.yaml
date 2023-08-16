@@ -1,9 +1,9 @@
 apiVersion: apiextensions.crossplane.io/v1
 kind: CompositeResourceDefinition
 metadata:
-  name: xclusters.aws.caas.upbound.io
+  name: xclusters.gcp.caas.upbound.io
 spec:
-  group: aws.caas.upbound.io
+  group: gcp.caas.upbound.io
   names:
     kind: XCluster
     plural: xclusters
@@ -30,6 +30,8 @@ spec:
                   id:
                     type: string
                     description: ID of this Cluster that other objects will use to refer to it.
+                    minLength: 1
+                    maxLength: 34
                   region:
                     type: string
                     description: Region is the region you'd like your resource to be created in.
@@ -47,7 +49,7 @@ spec:
                     - gitops-master
                     default: default
                   deletionPolicy:
-                    description: When the Composition is deleleted, delelete the AWS resources. Defaults to Delete
+                    description: When the Composition is deleleted, delelete the GCP resources. Defaults to Delete
                     enum:
                     - Delete
                     - Orphan
@@ -60,12 +62,7 @@ spec:
                   version:
                     type: string
                     description: Kubernetes version of the Cluster
-                    enum:
-                    - "1.27"
-                    - "1.26"
-                    - "1.25"
-                    - "1.24"
-                    default: "1.27"
+                    default: "latest"
                   nodes:
                     type: object
                     description: Cluster node configuration parameters.
@@ -130,10 +127,3 @@ spec:
                 - providerConfigName
             required:
             - parameters
-          status:
-            type: object
-            properties:
-              subnetIds:
-                type: array
-                items:
-                  type: string

@@ -1,9 +1,9 @@
 apiVersion: apiextensions.crossplane.io/v1
 kind: CompositeResourceDefinition
 metadata:
-  name: xservices.azure.caas.upbound.io
+  name: xservices.gcp.caas.upbound.io
 spec:
-  group: azure.caas.upbound.io
+  group: gcp.caas.upbound.io
   names:
     kind: XServices
     plural: xservices
@@ -19,7 +19,7 @@ spec:
             type: object
             properties:
               deletionPolicy:
-                description: When the Composition is deleleted, delelete the Azure resources. Defaults to Delete
+                description: When the Composition is deleleted, delelete the GKE resources. Defaults to Delete
                 enum:
                 - Delete
                 - Orphan
@@ -74,3 +74,4 @@ spec:
             required:
             - providerConfigRef
             - deletionPolicy
+

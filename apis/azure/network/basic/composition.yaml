@@ -6,6 +6,7 @@ metadata:
     provider: azure
     type: basic
 spec:
+  writeConnectionSecretsToNamespace: upbound-system
   compositeTypeRef:
     apiVersion: azure.caas.upbound.io/v1alpha1
     kind: XNetwork
